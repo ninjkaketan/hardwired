@@ -84,8 +84,8 @@
             background-image: url('hardwiredimage.jpg');
             background-size: cover;
             background-position: center;
-            color: transparent; /* Hide the "H" text */
-            font-size: 0; /* Hide the "H" text */
+            color: transparent;
+            font-size: 0;
         }
         
         .nav-links {
@@ -622,7 +622,7 @@
         <div class="hero-content">
             <h1>Future-Proof Your Home</h1>
             <p>Premium solar solutions, smart security, and seamless automation tailored to your lifestyle.</p>
-            <button class="cta-button">Explore Solutions</button>
+            <button class="cta-button" onclick="window.location.href='services.html'">Explore Solutions</button>
         </div>
     </section>
     
@@ -637,25 +637,25 @@
                 <div class="service-icon">☀️</div>
                 <h3>Solar Solutions</h3>
                 <p>High-efficiency solar panel installations with smart energy monitoring to reduce your carbon footprint and electricity bills.</p>
-                <a href="#" class="learn-more">Learn more</a>
+                <a href="services.html" class="learn-more">Learn more</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">👁️</div>
                 <h3>Smart Security</h3>
                 <p>AI-powered CCTV systems with facial recognition, motion detection, and remote monitoring for complete peace of mind.</p>
-                <a href="#" class="learn-more">Learn more</a>
+                <a href="services.html" class="learn-more">Learn more</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">📶</div>
                 <h3>WiFi Optimization</h3>
                 <p>Whole-home mesh networks that eliminate dead zones and provide seamless connectivity for all your devices.</p>
-                <a href="#" class="learn-more">Learn more</a>
+                <a href="services.html" class="learn-more">Learn more</a>
             </div>
             <div class="service-card">
                 <div class="service-icon">🏠</div>
                 <h3>Home Automation</h3>
                 <p>Custom smart home setups that integrate lighting, climate, entertainment, and security into one intuitive system.</p>
-                <a href="#" class="learn-more">Learn more</a>
+                <a href="services.html" class="learn-more">Learn more</a>
             </div>
         </div>
     </section>
@@ -724,10 +724,10 @@
             <div class="footer-column">
                 <h3>Services</h3>
                 <ul>
-                    <li><a href="#">Solar Installations</a></li>
-                    <li><a href="#">Security Systems</a></li>
-                    <li><a href="#">WiFi Solutions</a></li>
-                    <li><a href="#">Home Automation</a></li>
+                    <li><a href="services.html">Solar Installations</a></li>
+                    <li><a href="services.html">Security Systems</a></li>
+                    <li><a href="services.html">WiFi Solutions</a></li>
+                    <li><a href="services.html">Home Automation</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -807,7 +807,7 @@
                 if (window.innerWidth > 768) {
                     navLinks.style.display = 'flex';
                 } else {
-                    navLinks.style.display = 'none';
+                    navlinks.style.display = 'none';
                 }
             }
             
@@ -900,6 +900,10 @@
             const buttons = document.querySelectorAll('.cta-button');
             buttons.forEach(button => {
                 button.addEventListener('click', function(e) {
+                    if (this.getAttribute('onclick')) {
+                        // If button has onclick handler, let that handle the navigation
+                        return;
+                    }
                     e.preventDefault();
                     const x = e.clientX - e.target.getBoundingClientRect().left;
                     const y = e.clientY - e.target.getBoundingClientRect().top;
